@@ -1,0 +1,9 @@
+create database hotel;
+
+create table roommaster (roomno int(3) primary key, roomtype varchar(15), charges decimal(10,2), status varchar(20));
+
+create table checkin (customerid int(3) primary key, roomno int(3), customername varchar(30), address varchar(50),
+phone varchar(15), checkindate date, foreign key (roomno) references roommaster(roomno));
+
+create table checkout (customerid int(3), roomno int(3), customername varchar(30), address varchar(50),
+phone varchar(15), checkindate date, checkoutdate date, charges decimal(8,2));
